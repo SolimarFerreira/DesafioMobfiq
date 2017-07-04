@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">DesafioMobfiq</string>
+    <string name="app_name">Desafio Mobfiq</string>
+
+    <string name="tente_novamente">Tente novamente em alguns instantes!</string>
+    <string name="carregando">Carregando</string>
+    <string name="oops">Oops!</string>
+    <string name="erro">Algo de errado aconteceu!</string>
+    <string name="tentar_novamente">Tentar Novamente</string>
+    <string name="sem_internet">Por favor, verifique sua conexão com a internet.</string>
 </resources>
