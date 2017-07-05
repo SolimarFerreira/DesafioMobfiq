@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    style="?android:attr/buttonStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:minHeight="?attr/actionBarSize"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp"
+    android:layout_gravity="center">
+
+    <RelativeLayout
+        android:id="@+id/layitem"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:padding="5dp"
+        android:background="@color/colorAccent">
+
+
+        <TextView
+            android:id="@+id/tvname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nome"
+            android:textSize="17sp"
+            android:maxLines="3"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/tvprecotabela"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvname"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/red"/>
+
+        <TextView
+            android:id="@+id/tvprecofinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvprecotabela"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textSize="15sp"
+            android:textColor="@color/blue"/>
+
+        <TextView
+            android:id="@+id/tvparcelamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvprecofinal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/tvdesconto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:id="@+id/imgproduto"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_above="@+id/tvname"
+            android:layout_below="@+id/tvdesconto"
+            app:srcCompat="@mipmap/ic_launcher"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

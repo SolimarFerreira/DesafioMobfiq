@@ -7,4 +7,5 @@
     <string name="erro">Algo de errado aconteceu!</string>
     <string name="tentar_novamente">Tentar Novamente</string>
     <string name="sem_internet">Por favor, verifique sua conexão com a internet.</string>
+    <string name="orientaion">vertical</string>
 </resources>

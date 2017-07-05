@@ -14,7 +14,7 @@ import retrofit2.http.POST;
 
 public interface MobfiqService {
 
-    @POST
+    @POST("Search/Criteria/")
     @FormUrlEncoded
     Observable<Response<ResultadoJson>> search(@Field("Query") String query, @Field("Offset") int offSet, @Field("Size") int size);
 

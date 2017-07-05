@@ -84,4 +84,7 @@ public class Seller {
         this.offer = offer;
     }
 
+    public Integer calcDesconto(){
+        return (int) (100-((price/listPrice) *100));
+    }
 }
