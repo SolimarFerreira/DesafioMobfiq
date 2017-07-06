@@ -1,6 +1,10 @@
 package br.com.solimar.desafiomobfiq.services;
 
-import br.com.solimar.desafiomobfiq.models.ResultadoJson;
+import java.util.List;
+
+import br.com.solimar.desafiomobfiq.models.Category;
+import br.com.solimar.desafiomobfiq.models.ResultadoJsonCategory;
+import br.com.solimar.desafiomobfiq.models.ResultadoJsonProducts;
 import io.reactivex.Observable;
 import retrofit2.Response;
 import retrofit2.http.Field;
@@ -16,8 +20,8 @@ public interface MobfiqService {
 
     @POST("Search/Criteria/")
     @FormUrlEncoded
-    Observable<Response<ResultadoJson>> search(@Field("Query") String query, @Field("Offset") int offSet, @Field("Size") int size);
+    Observable<Response<ResultadoJsonProducts>> search(@Field("Query") String query, @Field("Offset") int offSet, @Field("Size") int size);
 
     @GET("StorePreference/CategoryTree/")
-    Observable<Response<Object>> listCategorias();
+    Observable<Response<ResultadoJsonCategory>> listCategorias();
 }

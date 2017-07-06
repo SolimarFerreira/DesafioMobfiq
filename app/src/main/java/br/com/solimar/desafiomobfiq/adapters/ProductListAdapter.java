@@ -1,5 +1,6 @@
 package br.com.solimar.desafiomobfiq.adapters;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -50,11 +51,17 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         holder.tvParcelamento.setText(sku.getSellers().get(0).getBestInstallment().getCount().toString());
         holder.tvDesconto.setText(sku.getSellers().get(0).calcDesconto().toString());
 
+        String imgUrl = getImage(holder.imgProduto.getContext(), sku);
+        Picasso.with(holder.imgProduto.getContext()).load(imgUrl).into(holder.imgProduto);
+    }
+
+    private String getImage(Context context, Sku sku) {
         for (Image img : sku.getImages()) {
-            if (img.getLabel() !=null && img.getLabel().equals("")){
-                Picasso.with(holder.imgProduto.getContext()).load(img.getImageUrl()).into(holder.imgProduto);
+            if (img.getLabel() !=null && img.getLabel().equals(context.getString(R.string.orientaion))){
+                return img.getImageUrl();
             }
         };
+        return sku.getImages().get(0).getImageUrl();
     }
 
     @Override
