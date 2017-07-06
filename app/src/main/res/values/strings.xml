@@ -14,4 +14,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="parcelamento"> %1$d de %2$s</string>
+    <string name="preco"> R$ %1$s</string>
+    <string name="search_title">Pesquisar </string>
+
+    <string name="sem_produtos">Não foi encontrado nenhum produto! </string>
 </resources>

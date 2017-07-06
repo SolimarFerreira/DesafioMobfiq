@@ -6,7 +6,7 @@
     style="?android:attr/buttonStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_margin="5dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
     android:minHeight="?attr/actionBarSize"
@@ -18,8 +18,7 @@
         android:id="@+id/layitem"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:padding="5dp"
-        android:background="@color/colorAccent">
+        android:padding="5dp">
 
 
         <TextView
@@ -30,42 +29,46 @@
             android:textSize="17sp"
             android:maxLines="3"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_above="@+id/tvprecotabela"
             android:layout_marginTop="5dp"/>
 
         <TextView
             android:id="@+id/tvprecotabela"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvname"
+            android:layout_above="@+id/tvprecofinal"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
+            android:textSize="10sp"
             android:textColor="@color/red"/>
 
         <TextView
             android:id="@+id/tvprecofinal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvprecotabela"
+            android:layout_above="@+id/tvparcelamento"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
             android:textSize="15sp"
-            android:textColor="@color/blue"/>
+            android:textColor="@color/green"/>
 
         <TextView
             android:id="@+id/tvparcelamento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvprecofinal"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/green"
+            android:layout_alignParentBottom="true"/>
 
         <TextView
             android:id="@+id/tvdesconto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentTop="true"
+            android:textColor="@color/red"
+            android:layout_marginRight="5dp"/>
 
         <ImageView
             android:id="@+id/imgproduto"

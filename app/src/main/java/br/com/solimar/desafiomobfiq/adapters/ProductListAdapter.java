@@ -11,12 +11,15 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import br.com.solimar.desafiomobfiq.R;
 import br.com.solimar.desafiomobfiq.models.Image;
 import br.com.solimar.desafiomobfiq.models.Product;
+import br.com.solimar.desafiomobfiq.models.Seller;
 import br.com.solimar.desafiomobfiq.models.Sku;
+import br.com.solimar.desafiomobfiq.utils.MyUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -28,10 +31,12 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
 
     private List<Product> products;
+    private Context context;
 
-    public ProductListAdapter(List<Product> products) {
+    public ProductListAdapter(List<Product> products, Context context) {
         super();
         this.products = products;
+        this.context = context;
     }
 
     @Override
@@ -43,24 +48,23 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     @Override
     public void onBindViewHolder(HolderProductList holder, int position) {
-        Product product = products.get(position);
-        holder.tvName.setText(product.getName());
-        Sku sku = product.getSkus().get(0);
-        holder.tvPrecoTabela.setText(sku.getSellers().get(0).getListPrice().toString());
-        holder.tvPrecoFinal.setText(sku.getSellers().get(0).getPrice().toString());
-        holder.tvParcelamento.setText(sku.getSellers().get(0).getBestInstallment().getCount().toString());
-        holder.tvDesconto.setText(sku.getSellers().get(0).calcDesconto().toString());
-
-        String imgUrl = getImage(holder.imgProduto.getContext(), sku);
-        Picasso.with(holder.imgProduto.getContext()).load(imgUrl).into(holder.imgProduto);
+        holder.tvName.setText(products.get(position).getName());
+        Seller seller = products.get(position).getSkus().get(0).getSellers().get(0);
+        holder.tvPrecoTabela.setText(context.getString(R.string.preco, MyUtils.formatPrice(seller.getListPrice())));
+        holder.tvPrecoFinal.setText(context.getString(R.string.preco, MyUtils.formatPrice(seller.getPrice())));
+        holder.tvDesconto.setText(seller.calcDesconto().toString()+"% Off");
+        holder.tvParcelamento.setText(context.getString(R.string.parcelamento, seller.getBestInstallment().getCount(),
+                MyUtils.formatPrice(seller.getBestInstallment().getValue())));
+        Picasso.with(context).load(getImage(context, products.get(position).getSkus().get(0))).into(holder.imgProduto);
     }
 
     private String getImage(Context context, Sku sku) {
         for (Image img : sku.getImages()) {
-            if (img.getLabel() !=null && img.getLabel().equals(context.getString(R.string.orientaion))){
+            if (img.getLabel() != null && img.getLabel().equals(context.getString(R.string.orientaion))) {
                 return img.getImageUrl();
             }
-        };
+        }
+        ;
         return sku.getImages().get(0).getImageUrl();
     }
 
@@ -94,7 +98,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             ButterKnife.bind(this, v);
 
         }
-
 
 
     }
